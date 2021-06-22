@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "decorations:block/inductive_block/inductive_block"
+  }
+}

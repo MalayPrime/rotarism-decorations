@@ -1,0 +1,216 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "down": "no_connect"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/no_connect_transparent",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "down": "pipe"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/pipe_transparent",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "down": "air"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/air_transparent",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "down": "container"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/container_transparent",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "up": "no_connect"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/no_connect_transparent",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "up": "pipe"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/pipe_transparent",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "up": "air"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/air_transparent",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "up": "container"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/container_transparent",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "north": "no_connect"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/no_connect_transparent"
+      }
+    },
+    {
+      "when": {
+        "north": "pipe"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/pipe_transparent"
+      }
+    },
+    {
+      "when": {
+        "north": "air"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/air_transparent"
+      }
+    },
+    {
+      "when": {
+        "north": "container"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/container_transparent"
+      }
+    },
+    {
+      "when": {
+        "south": "no_connect"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/no_connect_transparent",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "south": "pipe"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/pipe_transparent",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "south": "air"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/air_transparent",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "south": "container"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/container_transparent",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "no_connect"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/no_connect_transparent",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "west": "pipe"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/pipe_transparent",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "west": "air"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/air_transparent",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "west": "container"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/container_transparent",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "east": "no_connect"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/no_connect_transparent",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "east": "pipe"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/pipe_transparent",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "east": "air"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/air_transparent",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "east": "container"
+      },
+      "apply": {
+        "model": "decorations:block/pipe/container_transparent",
+        "y": 90
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "decorations:item/ingots/aluminum_alloy/aluminum_alloy_ingot"
+  }
+}

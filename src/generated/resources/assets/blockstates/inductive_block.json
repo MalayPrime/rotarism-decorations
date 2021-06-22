@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "decorations:block/inductive_block"
+    }
+  }
+}

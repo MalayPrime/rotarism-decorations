@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "decorations:block/bedrock_alloy_block/bedrock_alloy_block"
+  }
+}

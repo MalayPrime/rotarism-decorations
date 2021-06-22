@@ -1,0 +1,213 @@
+{
+  "credit": "MalayP made with Blockbench",
+  "texture_size": [
+    32,
+    32
+  ],
+  "textures": {
+    "0": "Desktop:rotaryCraftReload/temp_model/transmission/shaft/stone/stoneShaftVertical/stoneShaftVertical",
+    "particle": "Desktop:rotaryCraftReload/temp_model/transmission/shaft/stone/stoneShaftVertical/stoneShaftVertical"
+  },
+  "elements": [
+    {
+      "name": "pos",
+      "from": [
+        7,
+        -0.5,
+        7
+      ],
+      "to": [
+        9,
+        16.5,
+        9
+      ],
+      "rotation": {
+        "angle": -45,
+        "axis": "y",
+        "origin": [
+          8,
+          8,
+          8
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            5,
+            5,
+            6,
+            13.5
+          ],
+          "texture": "#0"
+        },
+        "east": {
+          "uv": [
+            4,
+            5,
+            5,
+            13.5
+          ],
+          "texture": "#0"
+        },
+        "south": {
+          "uv": [
+            7,
+            5,
+            8,
+            13.5
+          ],
+          "texture": "#0"
+        },
+        "west": {
+          "uv": [
+            6,
+            5,
+            7,
+            13.5
+          ],
+          "texture": "#0"
+        },
+        "up": {
+          "uv": [
+            6,
+            5,
+            5,
+            4
+          ],
+          "texture": "#0"
+        },
+        "down": {
+          "uv": [
+            7,
+            4,
+            6,
+            5
+          ],
+          "texture": "#0"
+        }
+      }
+    },
+    {
+      "name": "rot",
+      "from": [
+        7,
+        -0.49,
+        7
+      ],
+      "to": [
+        9,
+        16.51,
+        9
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            1,
+            1,
+            2,
+            9.5
+          ],
+          "texture": "#0"
+        },
+        "east": {
+          "uv": [
+            0,
+            1,
+            1,
+            9.5
+          ],
+          "texture": "#0"
+        },
+        "south": {
+          "uv": [
+            3,
+            1,
+            4,
+            9.5
+          ],
+          "texture": "#0"
+        },
+        "west": {
+          "uv": [
+            2,
+            1,
+            3,
+            9.5
+          ],
+          "texture": "#0"
+        },
+        "up": {
+          "uv": [
+            2,
+            1,
+            1,
+            0
+          ],
+          "texture": "#0"
+        },
+        "down": {
+          "uv": [
+            3,
+            0,
+            2,
+            1
+          ],
+          "texture": "#0"
+        }
+      }
+    }
+  ],
+  "groups": [
+    {
+      "name": "shell",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "children": [
+        {
+          "name": "rotatable",
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "children": [
+            {
+              "name": "pos",
+              "origin": [
+                0,
+                -0.5,
+                0
+              ],
+              "children": [
+                0
+              ]
+            },
+            {
+              "name": "rot",
+              "origin": [
+                0,
+                8,
+                0
+              ],
+              "children": [
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

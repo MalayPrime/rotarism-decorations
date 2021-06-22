@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "decorations:block/sintered_tungsten_block/sintered_tungsten_block"
+  }
+}

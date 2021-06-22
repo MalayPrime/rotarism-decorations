@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "decorations:item/ingots/sintered_tungsten/sintered_tungsten_ingot"
+  }
+}

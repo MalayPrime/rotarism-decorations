@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "decorations:lubricant",
+    "decorations:flowing_lubricant",
+    "decorations:jet_fuel",
+    "decorations:flowing_jet_fuel",
+    "decorations:alcohol",
+    "decorations:flowing_alcohol"
+  ]
+}

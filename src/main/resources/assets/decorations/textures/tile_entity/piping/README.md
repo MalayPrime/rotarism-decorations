@@ -1,0 +1,1 @@
+.png textures under this folder is universal for all types of pipe

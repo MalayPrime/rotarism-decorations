@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "decorations:item/ingots/spring_steel/spring_steel_ingot"
+  }
+}
