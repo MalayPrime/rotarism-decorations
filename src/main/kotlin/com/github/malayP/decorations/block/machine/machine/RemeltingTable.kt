@@ -1,6 +1,5 @@
 package com.github.malayP.decorations.block.machine.machine
 
-import com.github.malayP.decorations.block.machine.engine.ACElectronicEngineTileEntityRender
 import com.github.malayP.decorations.modResourcesLocation
 import com.github.malayP.decorations.register.AllTileEntity.remeltingTableType
 import com.github.zomb_676.fantasySoup.block.HorizonBlockWithTileEntity
@@ -10,20 +9,58 @@ import net.minecraft.block.BlockState
 import net.minecraft.block.material.Material
 import net.minecraft.client.renderer.IRenderTypeBuffer
 import net.minecraft.client.renderer.RenderType
-import net.minecraft.client.renderer.entity.model.EntityModel
 import net.minecraft.client.renderer.model.Model
 import net.minecraft.client.renderer.model.ModelRenderer
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher
 import net.minecraft.state.properties.BlockStateProperties
 import net.minecraft.tileentity.TileEntity
+import net.minecraft.util.Direction
 import net.minecraft.util.ResourceLocation
+import net.minecraft.util.math.BlockPos
+import net.minecraft.util.math.shapes.ISelectionContext
+import net.minecraft.util.math.shapes.VoxelShape
+import net.minecraft.util.math.shapes.VoxelShapes
 import net.minecraft.util.math.vector.Vector3f
 import net.minecraft.world.IBlockReader
 
 
 class RemeltingTable : HorizonBlockWithTileEntity(Properties.create(Material.IRON)) {
     override fun createTileEntity(state: BlockState?, world: IBlockReader?): TileEntity = RemeltingTableTileEntity()
+
+    companion object{
+        private val top = makeCuboidShape(1.0,16.0,1.0,15.0,32.0,15.0)
+        private val south :VoxelShape = VoxelShapes.or(makeCuboidShape(0.0,0.0,0.0,32.0,32.0,16.0),top)
+        private val west :VoxelShape = VoxelShapes.or(makeCuboidShape(0.0,0.0,0.0,16.0,32.0,32.0),top)
+        private val north :VoxelShape = VoxelShapes.or(makeCuboidShape(-16.0,0.0,0.0,16.0,32.0,16.0),top)
+        private val east :VoxelShape =VoxelShapes.or( makeCuboidShape(0.0,0.0,-16.0,16.0,32.0,16.0),top)
+    }
+
+    override fun getCollisionShape(state: BlockState, reader: IBlockReader, pos: BlockPos): VoxelShape = getShape(state)
+
+    override fun getCollisionShape(
+        state: BlockState,
+        worldIn: IBlockReader,
+        pos: BlockPos,
+        context: ISelectionContext
+    ): VoxelShape = getShape(state)
+    override fun getShape(
+        state: BlockState,
+        worldIn: IBlockReader?,
+        pos: BlockPos?,
+        context: ISelectionContext?
+    ): VoxelShape = getShape(state)
+
+    @Throws(RuntimeException::class)
+    private fun getShape(state: BlockState):VoxelShape=
+        when(state.get(BlockStateProperties.HORIZONTAL_FACING)){
+            Direction.NORTH -> north
+            Direction.SOUTH -> south
+            Direction.WEST -> west
+            Direction.EAST -> east
+            else -> throw RuntimeException("get up/down from horizon face block")
+        }
+
 }
 
 class RemeltingTableTileEntity : TileEntity(remeltingTableType.get()) {}
@@ -100,7 +137,7 @@ class RemeltingTableModel : Model(RenderType::getEntitySolid) {
         fixed.setRotationPoint(0.0f, 0.0f, 0.0f)
         shell.addChild(fixed)
         fixed.setTextureOffset(0, 19).addBox(-8.0f, -7.0f, -8.0f, 16.0f, 2.0f, 16.0f, 0.0f, false)
-        fixed.setTextureOffset(0, 38).addBox(-7.0f, -18.7f, -7.0f, 14.0f, 0.0f, 14.0f, 0.0f, false)
+        fixed.setTextureOffset(0, 38).addBox(-7.0f, -18.5f, -7.0f, 14.0f, 0.0f, 14.0f, 0.0f, false)
         fixed.setTextureOffset(25, 72).addBox(-3.0f, -22.7f, -3.0f, 6.0f, 4.0f, 6.0f, 0.0f, false)
         fixed.setTextureOffset(0, 0).addBox(8.0f, -7.0f, -8.0f, 16.0f, 2.0f, 16.0f, 0.0f, false)
         fixed.setTextureOffset(40, 69).addBox(9.0f, -8.0f, -7.0f, 1.0f, 1.0f, 14.0f, 0.0f, false)

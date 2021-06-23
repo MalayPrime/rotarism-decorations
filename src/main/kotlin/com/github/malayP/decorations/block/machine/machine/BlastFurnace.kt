@@ -1,6 +1,5 @@
 package com.github.malayP.decorations.block.machine.machine
 
-import com.github.malayP.decorations.block.machine.engine.ACElectronicEngineTileEntityRender
 import com.github.malayP.decorations.modResourcesLocation
 import com.github.malayP.decorations.register.AllTileEntity.blastFurnaceType
 import com.github.zomb_676.fantasySoup.block.HorizonBlockWithTileEntity
@@ -18,12 +17,33 @@ import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher
 import net.minecraft.state.properties.BlockStateProperties
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.ResourceLocation
+import net.minecraft.util.math.BlockPos
+import net.minecraft.util.math.shapes.ISelectionContext
+import net.minecraft.util.math.shapes.VoxelShape
 import net.minecraft.util.math.vector.Vector3f
 import net.minecraft.world.IBlockReader
 
 
 class BlastFurnace : HorizonBlockWithTileEntity(Properties.create(Material.IRON)) {
+    companion object{
+        private val shape: VoxelShape = makeCuboidShape(0.0,0.0,0.0,16.0,16.0,16.0)
+    }
     override fun createTileEntity(state: BlockState?, world: IBlockReader?): TileEntity = BlastFurnaceTileEntity()
+    override fun getCollisionShape(state: BlockState, reader: IBlockReader, pos: BlockPos): VoxelShape = shape
+
+    override fun getCollisionShape(
+        state: BlockState,
+        worldIn: IBlockReader,
+        pos: BlockPos,
+        context: ISelectionContext
+    ): VoxelShape = shape
+    override fun getShape(
+        state: BlockState?,
+        worldIn: IBlockReader?,
+        pos: BlockPos?,
+        context: ISelectionContext?
+    ): VoxelShape = shape
+
 }
 
 class BlastFurnaceTileEntity : TileEntity(blastFurnaceType.get()) {}
@@ -171,7 +191,7 @@ class BlastFurnaceModel : Model(RenderType::getEntitySolid) {
         `in` = ModelRenderer(this)
         `in`.setRotationPoint(0.0f, 0.1f, 0.0f)
         fixed.addChild(`in`)
-        `in`.setTextureOffset(48, 19).addBox(-4.0f, -20.0f, -3.5f, 8.0f, 0.0f, 9.0f, 0.0f, false)
+        `in`.setTextureOffset(48, 19).addBox(-4.0f, -21.0f, -3.5f, 8.0f, 1.0f, 9.0f, 0.0f, false)
         bone6 = ModelRenderer(this)
         bone6.setRotationPoint(0.5f, 0.0f, 0.0f)
         `in`.addChild(bone6)

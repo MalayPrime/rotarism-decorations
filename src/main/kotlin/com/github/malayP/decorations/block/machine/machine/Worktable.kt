@@ -16,13 +16,64 @@ import net.minecraft.client.renderer.tileentity.TileEntityRenderer
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher
 import net.minecraft.state.properties.BlockStateProperties
 import net.minecraft.tileentity.TileEntity
+import net.minecraft.util.Direction
 import net.minecraft.util.ResourceLocation
+import net.minecraft.util.math.BlockPos
+import net.minecraft.util.math.shapes.ISelectionContext
+import net.minecraft.util.math.shapes.VoxelShape
 import net.minecraft.util.math.vector.Vector3f
 import net.minecraft.world.IBlockReader
 
 
 class Worktable : HorizonBlockWithTileEntity(Properties.create(Material.IRON)) {
     override fun createTileEntity(state: BlockState?, world: IBlockReader?): TileEntity = WorktableTileEntity()
+
+    companion object{
+        private val south : VoxelShape = makeCuboidShape(0.0,0.0,0.0,32.0,32.0,16.0)
+        private val west :VoxelShape = makeCuboidShape(0.0,0.0,0.0,16.0,32.0,32.0)
+        private val north :VoxelShape = makeCuboidShape(-16.0,0.0,0.0,16.0,32.0,16.0)
+        private val east :VoxelShape = makeCuboidShape(0.0,0.0,-16.0,16.0,32.0,16.0)
+    }
+
+    override fun getCollisionShape(state: BlockState, reader: IBlockReader, pos: BlockPos): VoxelShape = getShape(state)
+
+    override fun getCollisionShape(
+        state: BlockState,
+        worldIn: IBlockReader,
+        pos: BlockPos,
+        context: ISelectionContext
+    ): VoxelShape = getShape(state)
+    override fun getShape(
+        state: BlockState,
+        worldIn: IBlockReader?,
+        pos: BlockPos?,
+        context: ISelectionContext?
+    ): VoxelShape = getShape(state)
+
+
+
+    @Throws(RuntimeException::class)
+    private fun getShape(state: BlockState):VoxelShape=
+        when(state.get(BlockStateProperties.HORIZONTAL_FACING)){
+            Direction.NORTH -> north
+            Direction.SOUTH -> south
+            Direction.WEST -> west
+            Direction.EAST -> east
+            else -> throw RuntimeException("get up/down from horizon face block")
+        }
+
+    override fun getRayTraceShape(
+        state: BlockState,
+        reader: IBlockReader,
+        pos: BlockPos,
+        context: ISelectionContext
+    ): VoxelShape =getShape(state)
+
+    override fun getRaytraceShape(state: BlockState, worldIn: IBlockReader, pos: BlockPos): VoxelShape =getShape(state)
+
+    override fun getRenderShape(state: BlockState, worldIn: IBlockReader, pos: BlockPos): VoxelShape =getShape(state)
+
+
 }
 
 class WorktableTileEntity : TileEntity(worktableType.get()) {}

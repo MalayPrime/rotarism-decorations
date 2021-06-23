@@ -2,6 +2,7 @@ package com.github.malayP.decorations.register
 
 import com.github.malayP.decorations.block.crop.Canola
 import com.github.malayP.decorations.block.machine.consumer.Centrifuge
+import com.github.malayP.decorations.block.machine.consumer.CentrifugeTileEntityRender
 import com.github.malayP.decorations.block.machine.consumer.FrictionHeater
 import com.github.malayP.decorations.block.machine.consumer.FrictionHeaterTileEntityRender
 import com.github.malayP.decorations.block.machine.engine.*
@@ -99,7 +100,11 @@ object AllBlocks {
             .item { isterModel() }
 
     val centrifugeBlock: BlockItemPair<BlockItem, Centrifuge> =
-        block().blockWithItem(Centrifuge::class.java, itemGroup = decorations)
+        block().blockWithItem(Centrifuge::class.java, itemGroup = decorations,
+            ister = {{RenderWithTextureAndModelISTER(
+                CentrifugeTileEntityRender.texture,
+                CentrifugeTileEntityRender.model
+            )}}).item { isterModel() }
 
     //engine
     val acElectronicEngineBlock: BlockItemPair<BlockItem, ACElectronicEngine> =
@@ -735,6 +740,17 @@ object AllBlocks {
                 GroundSprinklerTileEntityRender.texture,
                 GroundSprinklerTileEntityRender.model
             )}}
+        ).item { isterModel() }
+
+    val sprinklerBlock: BlockItemPair<BlockItem, Sprinkler> =
+        block().blockWithItem(
+            Sprinkler::class.java,
+            itemGroup = decorations,
+            ister = {{
+                RenderWithTextureAndModelISTER(
+                    SprinklerTileEntityRender.texture,
+                    SprinklerTileEntityRender.model
+                )}}
         ).item { isterModel() }
 
 }

@@ -1,16 +1,15 @@
 package com.github.malayP.decorations.block.machine.machine
 
-import com.github.malayP.decorations.block.machine.engine.ACElectronicEngineTileEntityRender
 import com.github.malayP.decorations.modResourcesLocation
 import com.github.malayP.decorations.register.AllTileEntity.groundSprinklerType
 import com.github.zomb_676.fantasySoup.block.HorizonBlockWithTileEntity
 import com.mojang.blaze3d.matrix.MatrixStack
 import com.mojang.blaze3d.vertex.IVertexBuilder
+import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.block.material.Material
 import net.minecraft.client.renderer.IRenderTypeBuffer
 import net.minecraft.client.renderer.RenderType
-import net.minecraft.client.renderer.entity.model.EntityModel
 import net.minecraft.client.renderer.model.Model
 import net.minecraft.client.renderer.model.ModelRenderer
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer
@@ -18,12 +17,36 @@ import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher
 import net.minecraft.state.properties.BlockStateProperties
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.ResourceLocation
+import net.minecraft.util.math.BlockPos
+import net.minecraft.util.math.shapes.ISelectionContext
+import net.minecraft.util.math.shapes.VoxelShape
+import net.minecraft.util.math.shapes.VoxelShapes
 import net.minecraft.util.math.vector.Vector3f
 import net.minecraft.world.IBlockReader
 
 
 class GroundSprinkler : HorizonBlockWithTileEntity(Properties.create(Material.IRON)) {
     override fun createTileEntity(state: BlockState?, world: IBlockReader?): TileEntity = GroundSprinklerTileEntity()
+    companion object{
+        private val base:VoxelShape = makeCuboidShape(2.0,0.0,2.0,14.0,1.0,14.0)
+        private val rod:VoxelShape = makeCuboidShape(5.5,0.8,5.5,11.5,45.0,11.5)
+        private val shape:VoxelShape = VoxelShapes.or(base, rod)
+    }
+    override fun getCollisionShape(state: BlockState, reader: IBlockReader, pos: BlockPos): VoxelShape = shape
+
+    override fun getCollisionShape(
+        state: BlockState,
+        worldIn: IBlockReader,
+        pos: BlockPos,
+        context: ISelectionContext
+    ): VoxelShape = shape
+    override fun getShape(
+        state: BlockState?,
+        worldIn: IBlockReader?,
+        pos: BlockPos?,
+        context: ISelectionContext?
+    ): VoxelShape = shape
+
 }
 
 class GroundSprinklerTileEntity : TileEntity(groundSprinklerType.get()) {}

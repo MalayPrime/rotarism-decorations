@@ -51,6 +51,7 @@ import com.github.malayP.decorations.register.AllBlocks.shaftCrossBlock
 import com.github.malayP.decorations.register.AllBlocks.shaftDistributionClutchBlock
 import com.github.malayP.decorations.register.AllBlocks.shaftPowerBusBlock
 import com.github.malayP.decorations.register.AllBlocks.shaftPowerBusControllerBlock
+import com.github.malayP.decorations.register.AllBlocks.sprinklerBlock
 import com.github.malayP.decorations.register.AllBlocks.steamEngineBlock
 import com.github.malayP.decorations.register.AllBlocks.steelGearBox16Block
 import com.github.malayP.decorations.register.AllBlocks.steelGearBox2Block
@@ -364,6 +365,13 @@ object AllTileEntity {
         GroundSprinklerTileEntity::class.java,
         {{GroundSprinklerTileEntityRender::class.java}},
         groundSprinklerBlock.block
+    )
+
+    val sprinklerType = tileEntityType().tileEntityBlind(
+        "sprinkler",
+        SprinklerTileEntity::class.java,
+        {{SprinklerTileEntityRender::class.java}},
+        sprinklerBlock.block
     )
 
 }
