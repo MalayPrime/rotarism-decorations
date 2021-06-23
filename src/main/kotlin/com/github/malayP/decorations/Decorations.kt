@@ -223,15 +223,15 @@ private fun fixer(string: String): String {
                 }
             } else {
                 if (index == 0) {
-                    stringBuilder.append(char.toLowerCase())
+                    stringBuilder.append(char.lowercaseChar())
                 } else if (index == string.length - 1) {
-                    stringBuilder.append(char.toLowerCase())
+                    stringBuilder.append(char.lowercaseChar())
                 } else if (string[index + 1].isLowerCase()) {
-                    stringBuilder.append("_".plus(char.toLowerCase()))
+                    stringBuilder.append("_".plus(char.lowercaseChar()))
                 } else if (string[index - 1].isLowerCase() and string[index + 1].isUpperCase()) {
-                    stringBuilder.append("_".plus(char.toLowerCase()))
+                    stringBuilder.append("_".plus(char.lowercaseChar()))
                 } else if (string[index - 1].isUpperCase() and (string[index + 1].isUpperCase() or string[index + 1].isDigit())) {
-                    stringBuilder.append(char.toLowerCase())
+                    stringBuilder.append(char.lowercaseChar())
                 } else {
                     stringBuilder.append(char)
                 }

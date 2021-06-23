@@ -5,7 +5,6 @@ import com.github.malayP.decorations.register.AllTileEntity
 import com.github.zomb_676.fantasySoup.EnumShaftMaterial
 import com.github.zomb_676.fantasySoup.block.AllFaceBlockWithTileEntity
 import com.github.zomb_676.fantasySoup.render.RenderWithTextureAndModel
-import com.github.zomb_676.fantasySoup.safeReturn
 import com.mojang.blaze3d.matrix.MatrixStack
 import com.mojang.blaze3d.vertex.IVertexBuilder
 import net.minecraft.block.Block
@@ -70,7 +69,7 @@ class BedrockShaft : ShaftBlock(Material.WOOD, EnumShaftMaterial.BEDROCK) {
     }
 }
 
-class ShaftTileEntity : RelayTileEntity(AllTileEntity.shaftType.get()) {
+class ShaftTileEntity : TileEntity(AllTileEntity.shaftType.get()) {
 
 }
 
@@ -107,12 +106,10 @@ class ShaftTileEntityRender(dispatcher: TileEntityRendererDispatcher) :
         combinedLightIn: Int,
         combinedOverlayIn: Int,
     ) {
-        val model: Model = tileEntityIn.model.safeReturn {
-            when (tileEntityIn.blockState.get(BlockStateProperties.FACING)!!) {
+        val model: Model = when (tileEntityIn.blockState.get(BlockStateProperties.FACING)!!) {
                 Direction.UP, Direction.DOWN -> VerticalShaftModel()
                 Direction.WEST, Direction.EAST, Direction.NORTH, Direction.SOUTH -> HorizonShaftModel()
             }
-        }
         val texture: ResourceLocation =
             when (tileEntityIn.blockState.get(BlockStateProperties.FACING)!!) {
                 Direction.UP, Direction.DOWN -> {
@@ -135,10 +132,6 @@ class ShaftTileEntityRender(dispatcher: TileEntityRendererDispatcher) :
                     }
                 }
             }
-        when (model) {
-            is HorizonShaftModel -> model.rotate(tileEntityIn.speed * partialTicks)
-            is VerticalShaftModel -> model.rotate(tileEntityIn.speed * partialTicks)
-        }
         renderWithTextureAndModel(
             tileEntityIn,
             texture,

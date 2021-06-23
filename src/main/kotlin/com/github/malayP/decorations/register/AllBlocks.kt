@@ -12,10 +12,7 @@ import com.github.malayP.decorations.dataGen.*
 import com.github.malayP.decorations.register.AllFluid.alcoholLiquid
 import com.github.malayP.decorations.register.AllFluid.jetFuelLiquid
 import com.github.malayP.decorations.register.AllFluid.lubricantLiquid
-import com.github.malayP.decorations.register.AllItemGroup.crops
-import com.github.malayP.decorations.register.AllItemGroup.machinesGroup
-import com.github.malayP.decorations.register.AllItemGroup.materialGroup
-import com.github.malayP.decorations.register.AllItemGroup.transformersGroup
+import com.github.malayP.decorations.register.AllItemGroup.decorations
 import com.github.malayP.decorations.register.RegisterCenter.registerHandleInstance
 import com.github.zomb_676.fantasySoup.register.BlockItemPair
 import com.github.zomb_676.fantasySoup.register.BlockRegisterInstance
@@ -33,56 +30,56 @@ object AllBlocks {
 
     // material block
     val aluminumBlock: BlockItemPair<BlockItem, Block> =
-        block().simpleBlockAndItem("aluminum_block", itemItemGroup = materialGroup)
+        block().simpleBlockAndItem("aluminum_block", itemItemGroup = decorations)
             .blockFile { allSameModel("block/aluminum_block/aluminum_block") }
             .useModel {
                 it.block { noVariantState { this@useModel } }
                 it.useBlockModel()
             }
     val bedrockAlloyBlock: BlockItemPair<BlockItem, Block> =
-        block().simpleBlockAndItem("bedrock_alloy_block", itemItemGroup = materialGroup)
+        block().simpleBlockAndItem("bedrock_alloy_block", itemItemGroup = decorations)
             .blockFile { allSameModel("block/bedrock_alloy_block/bedrock_alloy_block") }
             .useModel {
                 it.block { noVariantState { this@useModel } }
                 it.useBlockModel()
             }
     val hslaBlock: BlockItemPair<BlockItem, Block> =
-        block().simpleBlockAndItem("hsla_block", itemItemGroup = materialGroup)
+        block().simpleBlockAndItem("hsla_block", itemItemGroup = decorations)
             .blockFile { allSameModel("block/hsla_block/hsla_block") }
             .useModel {
                 it.block { noVariantState { this@useModel } }
                 it.useBlockModel()
             }
     val inductiveBlock: BlockItemPair<BlockItem, Block> =
-        block().simpleBlockAndItem("inductive_block", itemItemGroup = materialGroup)
+        block().simpleBlockAndItem("inductive_block", itemItemGroup = decorations)
             .blockFile { allSameModel("block/inductive_block/inductive_block") }
             .useModel {
                 it.block { noVariantState { this@useModel } }
                 it.useBlockModel()
             }
     val silverBlock: BlockItemPair<BlockItem, Block> =
-        block().simpleBlockAndItem("silver_block", itemItemGroup = materialGroup)
+        block().simpleBlockAndItem("silver_block", itemItemGroup = decorations)
             .blockFile { allSameModel("block/silver_block/silver_block") }
             .useModel {
                 it.block { noVariantState { this@useModel } }
                 it.useBlockModel()
             }
     val sinteredTungstenBlock: BlockItemPair<BlockItem, Block> =
-        block().simpleBlockAndItem("sintered_tungsten_block", itemItemGroup = materialGroup)
+        block().simpleBlockAndItem("sintered_tungsten_block", itemItemGroup = decorations)
             .blockFile { allSameModel("block/sintered_tungsten_block/sintered_tungsten_block") }
             .useModel {
                 it.block { noVariantState { this@useModel } }
                 it.useBlockModel()
             }
     val springSteelBlock: BlockItemPair<BlockItem, Block> =
-        block().simpleBlockAndItem("spring_steel_block", itemItemGroup = materialGroup)
+        block().simpleBlockAndItem("spring_steel_block", itemItemGroup = decorations)
             .blockFile { allSameModel("block/spring_steel_block/spring_steel_block") }
             .useModel {
                 it.block { noVariantState { this@useModel } }
                 it.useBlockModel()
             }
     val tungstenAlloyBlock: BlockItemPair<BlockItem, Block> =
-        block().simpleBlockAndItem("tungsten_alloy_block", itemItemGroup = materialGroup)
+        block().simpleBlockAndItem("tungsten_alloy_block", itemItemGroup = decorations)
             .blockFile { allSameModel("block/tungsten_alloy_block/tungsten_alloy_block") }
             .useModel {
                 it.block { noVariantState { this@useModel } }
@@ -93,7 +90,7 @@ object AllBlocks {
     val frictionHeaterBlock: BlockItemPair<BlockItem, FrictionHeater> =
         block().blockWithItem(
             FrictionHeater::class.java,
-            itemGroup = machinesGroup,
+            itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 FrictionHeaterTileEntityRender.texture,
                 FrictionHeaterTileEntityRender.model
@@ -102,12 +99,12 @@ object AllBlocks {
             .item { isterModel() }
 
     val centrifugeBlock: BlockItemPair<BlockItem, Centrifuge> =
-        block().blockWithItem(Centrifuge::class.java, itemGroup = machinesGroup)
+        block().blockWithItem(Centrifuge::class.java, itemGroup = decorations)
 
     //engine
     val acElectronicEngineBlock: BlockItemPair<BlockItem, ACElectronicEngine> =
         block().blockWithItem(
-            ACElectronicEngine::class.java, itemGroup = machinesGroup,
+            ACElectronicEngine::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ACElectronicEngineTileEntityRender.texture,
                 ACElectronicEngineTileEntityRender.model
@@ -116,7 +113,7 @@ object AllBlocks {
             .item { isterModel() }
     val creativeEngineBlock: BlockItemPair<BlockItem, CreativeEngine> =
         block().blockWithItem(
-            CreativeEngine::class.java, itemGroup = machinesGroup,
+            CreativeEngine::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 CreativeEngineTileEntityRender.texture,
                 CreativeEngineTileEntityRender.model
@@ -125,7 +122,7 @@ object AllBlocks {
             .item { isterModel() }
     val dcElectronicEngineBlock: BlockItemPair<BlockItem, DCElectronicEngine> =
         block().blockWithItem(
-            DCElectronicEngine::class.java, itemGroup = machinesGroup,
+            DCElectronicEngine::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 DCElectronicEngineTileEntityRender.texture,
                 DCElectronicEngineModel()
@@ -134,7 +131,7 @@ object AllBlocks {
             .item { isterModel() }
     val GasolineEngineBlock: BlockItemPair<BlockItem, GasolineEngine> =
         block().blockWithItem(
-            GasolineEngine::class.java, itemGroup = machinesGroup,
+            GasolineEngine::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GasolineEngineTileEntityRender.texture,
                 GasolineEngineTileEntityRender.model
@@ -143,7 +140,7 @@ object AllBlocks {
             .item { isterModel() }
     val gasTurbine: BlockItemPair<BlockItem, GasTurbine> =
         block().blockWithItem(
-            GasTurbine::class.java, itemGroup = machinesGroup,
+            GasTurbine::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GasTurbineTileEntityRender.texture,
                 GasTurbineTileEntityRender.model
@@ -152,7 +149,7 @@ object AllBlocks {
             .item { isterModel() }
     val hydrokineticEngineBlock: BlockItemPair<BlockItem, HydrokineticEngine> =
         block().blockWithItem(
-            HydrokineticEngine::class.java, itemGroup = machinesGroup,
+            HydrokineticEngine::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 HydrokineticEngineTileEntityRender.texture,
                 HydrokineticEngineTileEntityRender.model
@@ -161,7 +158,7 @@ object AllBlocks {
             .item { isterModel() }
     val microturbineBlock: BlockItemPair<BlockItem, Microturbine> =
         block().blockWithItem(
-            Microturbine::class.java, itemGroup = machinesGroup,
+            Microturbine::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 MicroturbineTileEntityRender.texture,
                 MicroturbineTileEntityRender.model
@@ -170,7 +167,7 @@ object AllBlocks {
             .item { isterModel() }
     val performanceEngineBlock: BlockItemPair<BlockItem, PerformanceEngine> =
         block().blockWithItem(
-            PerformanceEngine::class.java, itemGroup = machinesGroup,
+            PerformanceEngine::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 PerformanceEngineTileEntityRender.texture,
                 PerformanceEngineTileEntityRender.model
@@ -179,7 +176,7 @@ object AllBlocks {
             .item { isterModel() }
     val steamEngineBlock: BlockItemPair<BlockItem, SteamEngine> =
         block().blockWithItem(
-            SteamEngine::class.java, itemGroup = machinesGroup,
+            SteamEngine::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 SteamEngineTileEntityRender.texture,
                 SteamEngineTileEntityRender.model
@@ -188,7 +185,7 @@ object AllBlocks {
             .item { isterModel() }
     val windTurbineBlock: BlockItemPair<BlockItem, WindTurbine> =
         block().blockWithItem(
-            WindTurbine::class.java, itemGroup = machinesGroup,
+            WindTurbine::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 WindTurbineTileEntityRender.texture,
                 WindTurbineTileEntityRender.model
@@ -200,7 +197,7 @@ object AllBlocks {
     // relay
     val beltHubBlock: BlockItemPair<BlockItem, BeltHub> =
         block().blockWithItem(
-            BeltHub::class.java, itemGroup = transformersGroup,
+            BeltHub::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 BeltHubTileEntityRender.texture,
                 BeltHubTileEntityRender.model
@@ -209,7 +206,7 @@ object AllBlocks {
             .item { isterModel() }
     val bevelGearBlock: BlockItemPair<BlockItem, BevelGear> =
         block().blockWithItem(
-            BevelGear::class.java, itemGroup = transformersGroup,
+            BevelGear::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 BevelGearTileEntityRender.texture,
                 BevelGearTileEntityRender.model
@@ -218,7 +215,7 @@ object AllBlocks {
             .item { isterModel() }
     val chainDriveBlock: BlockItemPair<BlockItem, ChainDrive> =
         block().blockWithItem(
-            ChainDrive::class.java, itemGroup = transformersGroup,
+            ChainDrive::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ChainDriveTileEntityRender.texture,
                 ChainDriveTileEntityRender.model
@@ -227,7 +224,7 @@ object AllBlocks {
             .item { isterModel() }
     val clutchBlock: BlockItemPair<BlockItem, Clutch> =
         block().blockWithItem(
-            Clutch::class.java, itemGroup = transformersGroup,
+            Clutch::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ClutchTileEntityRender.clutch,
                 ClutchTileEntityRender.model
@@ -236,7 +233,7 @@ object AllBlocks {
             .item { isterModel() }
     val cvtUnitBlock: BlockItemPair<BlockItem, CVTUnit> =
         block().blockWithItem(
-            CVTUnit::class.java, itemGroup = transformersGroup,
+            CVTUnit::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 CVTUnitTileEntityRender.texture,
                 CVTUnitTileEntityRender.model
@@ -245,7 +242,7 @@ object AllBlocks {
             .item { isterModel() }
     val dynamometerBlock: BlockItemPair<BlockItem, Dynamometer> =
         block().blockWithItem(
-            Dynamometer::class.java, itemGroup = transformersGroup,
+            Dynamometer::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 DynamometerTileEntityRender.texture,
                 DynamometerTileEntityRender.model
@@ -254,7 +251,7 @@ object AllBlocks {
             .item { isterModel() }
     val woodenFlywheelBlock: BlockItemPair<BlockItem, WoodenFlyWheel> =
         block().blockWithItem(
-            WoodenFlyWheel::class.java, itemGroup = transformersGroup,
+            WoodenFlyWheel::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 FlywheelTileEntityRender.woodenFlyWheel,
                 FlywheelTileEntityRender.model
@@ -263,7 +260,7 @@ object AllBlocks {
             .item { isterModel() }
     val stoneFlywheelBlock: BlockItemPair<BlockItem, StoneFlyWheel> =
         block().blockWithItem(
-            StoneFlyWheel::class.java, itemGroup = transformersGroup,
+            StoneFlyWheel::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 FlywheelTileEntityRender.stoneFlyWheel,
                 FlywheelTileEntityRender.model
@@ -272,7 +269,7 @@ object AllBlocks {
             .item { isterModel() }
     val ironFlywheelBlock: BlockItemPair<BlockItem, IronFlyWheel> =
         block().blockWithItem(
-            IronFlyWheel::class.java, itemGroup = transformersGroup,
+            IronFlyWheel::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 FlywheelTileEntityRender.ironFlyWheel,
                 FlywheelTileEntityRender.model
@@ -281,7 +278,7 @@ object AllBlocks {
             .item { isterModel() }
     val goldFlywheelBlock: BlockItemPair<BlockItem, GoldFlyWheel> =
         block().blockWithItem(
-            GoldFlyWheel::class.java, itemGroup = transformersGroup,
+            GoldFlyWheel::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 FlywheelTileEntityRender.goldFlyWheel,
                 FlywheelTileEntityRender.model
@@ -292,7 +289,7 @@ object AllBlocks {
     //// gearbox
     val woodenGearBox2Block: BlockItemPair<BlockItem, WoodenGearBox2> =
         block().blockWithItem(
-            WoodenGearBox2::class.java, itemGroup = transformersGroup,
+            WoodenGearBox2::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.woodenGearBox2,
                 GearboxTileEntityRender.gearboxModel2x
@@ -301,7 +298,7 @@ object AllBlocks {
             .item { isterModel() }
     val woodenGearBox4Block: BlockItemPair<BlockItem, WoodenGearBox4> =
         block().blockWithItem(
-            WoodenGearBox4::class.java, itemGroup = transformersGroup,
+            WoodenGearBox4::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.woodenGearBox4,
                 GearboxTileEntityRender.gearboxModel4x
@@ -310,7 +307,7 @@ object AllBlocks {
             .item { isterModel() }
     val woodenGearBox8Block: BlockItemPair<BlockItem, WoodenGearBox8> =
         block().blockWithItem(
-            WoodenGearBox8::class.java, itemGroup = transformersGroup,
+            WoodenGearBox8::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.woodenGearBox8,
                 GearboxTileEntityRender.gearboxModel8x
@@ -319,7 +316,7 @@ object AllBlocks {
             .item { isterModel() }
     val woodenGearBox16Block: BlockItemPair<BlockItem, WoodenGearBox16> =
         block().blockWithItem(
-            WoodenGearBox16::class.java, itemGroup = transformersGroup,
+            WoodenGearBox16::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.woodenGearBox16,
                 GearboxTileEntityRender.gearboxModel16x
@@ -328,7 +325,7 @@ object AllBlocks {
             .item { isterModel() }
     val stoneGearBox2Block: BlockItemPair<BlockItem, StoneGearBox2> =
         block().blockWithItem(
-            StoneGearBox2::class.java, itemGroup = transformersGroup,
+            StoneGearBox2::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.stoneGearBox2,
                 GearboxTileEntityRender.gearboxModel2x
@@ -337,7 +334,7 @@ object AllBlocks {
             .item { isterModel() }
     val stoneGearBox4Block: BlockItemPair<BlockItem, StoneGearBox4> =
         block().blockWithItem(
-            StoneGearBox4::class.java, itemGroup = transformersGroup,
+            StoneGearBox4::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.stoneGearBox4,
                 GearboxTileEntityRender.gearboxModel4x
@@ -346,7 +343,7 @@ object AllBlocks {
             .item { isterModel() }
     val stoneGearBox8Block: BlockItemPair<BlockItem, StoneGearBox8> =
         block().blockWithItem(
-            StoneGearBox8::class.java, itemGroup = transformersGroup,
+            StoneGearBox8::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.stoneGearBox8,
                 GearboxTileEntityRender.gearboxModel8x
@@ -355,7 +352,7 @@ object AllBlocks {
             .item { isterModel() }
     val stoneGearBox16Block: BlockItemPair<BlockItem, StoneGearBox16> =
         block().blockWithItem(
-            StoneGearBox16::class.java, itemGroup = transformersGroup,
+            StoneGearBox16::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.stoneGearBox16,
                 GearboxTileEntityRender.gearboxModel16x
@@ -364,7 +361,7 @@ object AllBlocks {
             .item { isterModel() }
     val steelGearBox2Block: BlockItemPair<BlockItem, SteelGearBox2> =
         block().blockWithItem(
-            SteelGearBox2::class.java, itemGroup = transformersGroup,
+            SteelGearBox2::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.steelGearBox2,
                 GearboxTileEntityRender.gearboxModel2x
@@ -373,7 +370,7 @@ object AllBlocks {
             .item { isterModel() }
     val steelGearBox4Block: BlockItemPair<BlockItem, SteelGearBox4> =
         block().blockWithItem(
-            SteelGearBox4::class.java, itemGroup = transformersGroup,
+            SteelGearBox4::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.steelGearBox4,
                 GearboxTileEntityRender.gearboxModel4x
@@ -382,7 +379,7 @@ object AllBlocks {
             .item { isterModel() }
     val steelGearBox8Block: BlockItemPair<BlockItem, SteelGearBox8> =
         block().blockWithItem(
-            SteelGearBox8::class.java, itemGroup = transformersGroup,
+            SteelGearBox8::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.steelGearBox8,
                 GearboxTileEntityRender.gearboxModel8x
@@ -391,7 +388,7 @@ object AllBlocks {
             .item { isterModel() }
     val steelGearBox16Block: BlockItemPair<BlockItem, SteelGearBox16> =
         block().blockWithItem(
-            SteelGearBox16::class.java, itemGroup = transformersGroup,
+            SteelGearBox16::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.steelGearBox16,
                 GearboxTileEntityRender.gearboxModel16x
@@ -400,7 +397,7 @@ object AllBlocks {
             .item { isterModel() }
     val diamondGearBox2Block: BlockItemPair<BlockItem, DiamondGearBox2> =
         block().blockWithItem(
-            DiamondGearBox2::class.java, itemGroup = transformersGroup,
+            DiamondGearBox2::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.diamondGearBox2,
                 GearboxTileEntityRender.gearboxModel2x
@@ -409,7 +406,7 @@ object AllBlocks {
             .item { isterModel() }
     val diamondGearBox4Block: BlockItemPair<BlockItem, DiamondGearBox4> =
         block().blockWithItem(
-            DiamondGearBox4::class.java, itemGroup = transformersGroup,
+            DiamondGearBox4::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.diamondGearBox4,
                 GearboxTileEntityRender.gearboxModel4x
@@ -418,7 +415,7 @@ object AllBlocks {
             .item { isterModel() }
     val diamondGearBox8Block: BlockItemPair<BlockItem, DiamondGearBox8> =
         block().blockWithItem(
-            DiamondGearBox8::class.java, itemGroup = transformersGroup,
+            DiamondGearBox8::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.diamondGearBox8,
                 GearboxTileEntityRender.gearboxModel8x
@@ -427,7 +424,7 @@ object AllBlocks {
             .item { isterModel() }
     val diamondGearBox16Block: BlockItemPair<BlockItem, DiamondGearBox16> =
         block().blockWithItem(
-            DiamondGearBox16::class.java, itemGroup = transformersGroup,
+            DiamondGearBox16::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.diamondGearBox16,
                 GearboxTileEntityRender.gearboxModel16x
@@ -436,7 +433,7 @@ object AllBlocks {
             .item { isterModel() }
     val bedrockGearBox2Block: BlockItemPair<BlockItem, BedrockGearBox2> =
         block().blockWithItem(
-            BedrockGearBox2::class.java, itemGroup = transformersGroup,
+            BedrockGearBox2::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.bedrockGearBox2,
                 GearboxTileEntityRender.gearboxModel2x
@@ -445,7 +442,7 @@ object AllBlocks {
             .item { isterModel() }
     val bedrockGearBox4Block: BlockItemPair<BlockItem, BedrockGearBox4> =
         block().blockWithItem(
-            BedrockGearBox4::class.java, itemGroup = transformersGroup,
+            BedrockGearBox4::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.bedrockGearBox4,
                 GearboxTileEntityRender.gearboxModel4x
@@ -454,7 +451,7 @@ object AllBlocks {
             .item { isterModel() }
     val bedrockGearBox8Block: BlockItemPair<BlockItem, BedrockGearBox8> =
         block().blockWithItem(
-            BedrockGearBox8::class.java, itemGroup = transformersGroup,
+            BedrockGearBox8::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.bedrockGearBox8,
                 GearboxTileEntityRender.gearboxModel8x
@@ -463,7 +460,7 @@ object AllBlocks {
             .item { isterModel() }
     val bedrockGearBox16Block: BlockItemPair<BlockItem, BedrockGearBox16> =
         block().blockWithItem(
-            BedrockGearBox16::class.java, itemGroup = transformersGroup,
+            BedrockGearBox16::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GearboxTileEntityRender.bedrockGearBox16,
                 GearboxTileEntityRender.gearboxModel16x
@@ -474,7 +471,7 @@ object AllBlocks {
     ////
     val steelIndustrialCoilBlock: BlockItemPair<BlockItem, SteelIndustrialCoil> =
         block().blockWithItem(
-            SteelIndustrialCoil::class.java, itemGroup = transformersGroup,
+            SteelIndustrialCoil::class.java, itemGroup = decorations,
             ister ={{ RenderWithTextureAndModelISTER(
                 IndustrialCoilTileEntityRender.steelIndustrialCoil,
                 IndustrialCoilTileEntityRender.model
@@ -483,7 +480,7 @@ object AllBlocks {
             .item { isterModel() }
     val bedrockIndustrialCoilBlock: BlockItemPair<BlockItem, BedrockIndustrialCoil> =
         block().blockWithItem(
-            BedrockIndustrialCoil::class.java, itemGroup = transformersGroup,
+            BedrockIndustrialCoil::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 IndustrialCoilTileEntityRender.bedrockIndustrialCoil,
                 IndustrialCoilTileEntityRender.model
@@ -492,7 +489,7 @@ object AllBlocks {
             .item { isterModel() }
     val multiDirectionalClutch: BlockItemPair<BlockItem, MultiDirectionalClutch> =
         block().blockWithItem(
-            MultiDirectionalClutch::class.java, itemGroup = transformersGroup,
+            MultiDirectionalClutch::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 MultiDirectionalClutchTileEntityRender.texture,
                 MultiDirectionalClutchTileEntityRender.model
@@ -504,7 +501,7 @@ object AllBlocks {
     val woodenShaftBlock: BlockItemPair<BlockItem, WoodenShaft> =
         block().blockWithItem(
             WoodenShaft::class.java,
-            itemGroup = transformersGroup,
+            itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ShaftTileEntityRender.horizonWoodenShaft,
                 HorizonShaftModel()
@@ -513,7 +510,7 @@ object AllBlocks {
             .item { isterModel() }
     val stoneShaftBlock: BlockItemPair<BlockItem, StoneShaft> =
         block().blockWithItem(
-            StoneShaft::class.java, itemGroup = transformersGroup,
+            StoneShaft::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ShaftTileEntityRender.horizonStoneShaft,
                 HorizonShaftModel()
@@ -522,7 +519,7 @@ object AllBlocks {
             .item { isterModel() }
     val steelShaftBlock: BlockItemPair<BlockItem, SteelShaft> =
         block().blockWithItem(
-            SteelShaft::class.java, itemGroup = transformersGroup,
+            SteelShaft::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ShaftTileEntityRender.horizonSteelShaft,
                 HorizonShaftModel()
@@ -531,7 +528,7 @@ object AllBlocks {
             .item { isterModel() }
     val diamondShaftBlock: BlockItemPair<BlockItem, DiamondShaft> =
         block().blockWithItem(
-            DiamondShaft::class.java, itemGroup = transformersGroup,
+            DiamondShaft::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ShaftTileEntityRender.horizonDiamondShaft,
                 HorizonShaftModel()
@@ -540,7 +537,7 @@ object AllBlocks {
             .item { isterModel() }
     val bedrockShaftBlock: BlockItemPair<BlockItem, BedrockShaft> =
         block().blockWithItem(
-            BedrockShaft::class.java, itemGroup = transformersGroup,
+            BedrockShaft::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ShaftTileEntityRender.horizonBedrockShaft,
                 HorizonShaftModel()
@@ -551,7 +548,7 @@ object AllBlocks {
     ////
     val shaftCrossBlock: BlockItemPair<BlockItem, ShaftCross> =
         block().blockWithItem(
-            ShaftCross::class.java, itemGroup = transformersGroup,
+            ShaftCross::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ShaftCrossTileEntityRender.texture,
                 ShaftCrossTileEntityRender.model
@@ -560,7 +557,7 @@ object AllBlocks {
             .item { isterModel() }
     val shaftDistributionClutchBlock: BlockItemPair<BlockItem, ShaftDistributionClutch> =
         block().blockWithItem(
-            ShaftDistributionClutch::class.java, itemGroup = transformersGroup,
+            ShaftDistributionClutch::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ShaftDistributionClutchTileEntityRender.texture,
                 ShaftDistributionClutchTileEntityRender.model
@@ -569,7 +566,7 @@ object AllBlocks {
             .item { isterModel() }
     val steelShaftJunctionBlock: BlockItemPair<BlockItem, SteelShaftJunction> =
         block().blockWithItem(
-            SteelShaftJunction::class.java, itemGroup = transformersGroup,
+            SteelShaftJunction::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ShaftJunctionTileEntityRender.steelSideShaftJunction,
                 ShaftJunctionTileEntityRender.model
@@ -578,7 +575,7 @@ object AllBlocks {
             .item { isterModel() }
     val bedrockShaftJunctionBlock: BlockItemPair<BlockItem, BedrockShaftJunction> =
         block().blockWithItem(
-            BedrockShaftJunction::class.java, itemGroup = transformersGroup,
+            BedrockShaftJunction::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ShaftJunctionTileEntityRender.bedrockCenterShaftJunction,
                 ShaftJunctionTileEntityRender.model
@@ -587,7 +584,7 @@ object AllBlocks {
             .item { isterModel() }
     val shaftPowerBusBlock: BlockItemPair<BlockItem, ShaftPowerBus> =
         block().blockWithItem(
-            ShaftPowerBus::class.java, itemGroup = transformersGroup,
+            ShaftPowerBus::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ShaftPowerBusTileEntityRender.texture,
                 ShaftPowerBusTileEntityRender.model
@@ -596,7 +593,7 @@ object AllBlocks {
             .item { isterModel() }
     val shaftPowerBusControllerBlock: BlockItemPair<BlockItem, ShaftPowerBusController> =
         block().blockWithItem(
-            ShaftPowerBusController::class.java, itemGroup = transformersGroup,
+            ShaftPowerBusController::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ShaftPowerBusControllerTileEntityRender.texture,
                 ShaftPowerBusControllerTileEntityRender.model
@@ -605,7 +602,7 @@ object AllBlocks {
             .item { isterModel() }
     val wormGearBlock: BlockItemPair<BlockItem, WormGear> =
         block().blockWithItem(
-            WormGear::class.java, itemGroup = transformersGroup,
+            WormGear::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 WormGearTileEntityRender.texture,
                 WormGearTileEntityRender.model
@@ -615,13 +612,13 @@ object AllBlocks {
 
     //pipes
     val normalPipe = block().blockWithItem(
-        NormalPipe::class.java, itemGroup = machinesGroup
+        NormalPipe::class.java, itemGroup = decorations
     ).block { setCustomModel(NormalPipe.TransparentModel) }
         .block { blindBlockRenderType{{RenderType.getTranslucent()}} }
 
-    //crops
+    //decorations
     val canola = block().blockWithItem(
-        Canola::class.java, itemGroup = crops
+        Canola::class.java, itemGroup = decorations
     ).block { setCustomModel(Canola.model) }
         .item { generatedModelWithOneTexture("item/material/canola_seeds/canola_seeds") }
         .block { blindBlockRenderType { { RenderType.getTranslucent() } } }
@@ -639,7 +636,7 @@ object AllBlocks {
     val pulseJetFurnaceBlock: BlockItemPair<BlockItem, PulseJetFurnace> =
         block().blockWithItem(
             PulseJetFurnace::class.java,
-            itemGroup = transformersGroup,
+            itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 PulseJetFurnaceTileEntityRender.texture,
                 PulseJetFurnaceTileEntityRender.model
@@ -648,7 +645,7 @@ object AllBlocks {
 
     val woodCutterBlock: BlockItemPair<BlockItem, WoodCutter> =
         block().blockWithItem(
-            WoodCutter::class.java, itemGroup = transformersGroup,
+            WoodCutter::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 WoodCutterTileEntityRender.texture,
                 WoodCutterTileEntityRender.model
@@ -657,7 +654,7 @@ object AllBlocks {
 
     val extractorBlock: BlockItemPair<BlockItem, Extractor> =
         block().blockWithItem(
-            Extractor::class.java, itemGroup = transformersGroup,
+            Extractor::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 ExtractorTileEntityRender.texture,
                 ExtractorTileEntityRender.model
@@ -666,7 +663,7 @@ object AllBlocks {
 
     val reverseGearBlock: BlockItemPair<BlockItem, ReverseGear> =
         block().blockWithItem(
-            ReverseGear::class.java, itemGroup = transformersGroup,
+            ReverseGear::class.java, itemGroup = decorations,
             ister ={{ RenderWithTextureAndModelISTER(
                 ReverseGearTileEntityRender.texture,
                 ReverseGearTileEntityRender.model
@@ -675,7 +672,7 @@ object AllBlocks {
 
     val pumpBlock: BlockItemPair<BlockItem, Pump> =
         block().blockWithItem(
-            Pump::class.java, itemGroup = transformersGroup,
+            Pump::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 PumpTileEntityRender.texture,
                 PumpTileEntityRender.model
@@ -684,7 +681,7 @@ object AllBlocks {
 
     val blastFurnaceBlock: BlockItemPair<BlockItem, BlastFurnace> =
         block().blockWithItem(
-            BlastFurnace::class.java, itemGroup = transformersGroup,
+            BlastFurnace::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 BlastFurnaceTileEntityRender.texture,
                 BlastFurnaceTileEntityRender.model
@@ -694,7 +691,7 @@ object AllBlocks {
     val remeltingTableBlock: BlockItemPair<BlockItem, RemeltingTable> =
         block().blockWithItem(
             RemeltingTable::class.java,
-            itemGroup = transformersGroup,
+            itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 RemeltingTableTileEntityRender.texture,
                 RemeltingTableTileEntityRender.model
@@ -703,7 +700,7 @@ object AllBlocks {
 
     val worktableBlock: BlockItemPair<BlockItem, Worktable> =
         block().blockWithItem(
-            Worktable::class.java, itemGroup = transformersGroup,
+            Worktable::class.java, itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 WorktableTileEntityRender.texture,
                 WorktableTileEntityRender.model
@@ -713,7 +710,7 @@ object AllBlocks {
     val bedrockBreakerBlock: BlockItemPair<BlockItem, BedrockBreaker> =
         block().blockWithItem(
             BedrockBreaker::class.java,
-            itemGroup = transformersGroup,
+            itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 BedrockBreakerTileEntityRender.texture,
                 BedrockBreakerTileEntityRender.model
@@ -723,7 +720,7 @@ object AllBlocks {
     val enhancedBedrockBreakerBlock: BlockItemPair<BlockItem, EnhancedBedrockBreaker> =
         block().blockWithItem(
             EnhancedBedrockBreaker::class.java,
-            itemGroup = transformersGroup,
+            itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 EnhancedBedrockBreakerTileEntityRender.texture,
                 EnhancedBedrockBreakerTileEntityRender.model
@@ -733,7 +730,7 @@ object AllBlocks {
     val groundSprinklerBlock: BlockItemPair<BlockItem, GroundSprinkler> =
         block().blockWithItem(
             GroundSprinkler::class.java,
-            itemGroup = transformersGroup,
+            itemGroup = decorations,
             ister = {{RenderWithTextureAndModelISTER(
                 GroundSprinklerTileEntityRender.texture,
                 GroundSprinklerTileEntityRender.model

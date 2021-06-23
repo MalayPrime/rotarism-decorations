@@ -41,9 +41,8 @@ class BevelGear : AllFaceBlockWithTileEntity(Properties.create(Material.IRON)) {
 
 }
 
-class BevelGearTileEntity : RelayTileEntity(bevelGearType.get()) {
-    fun getInputSide() = blockState.get(BlockStateProperties.FACING)
-    fun getOutputSide() = blockState.get(BlockStateProperties.FACING)
+class BevelGearTileEntity : TileEntity(bevelGearType.get()) {
+
 }
 
 class BevelGearTileEntityRender(dispatcher: TileEntityRendererDispatcher) :

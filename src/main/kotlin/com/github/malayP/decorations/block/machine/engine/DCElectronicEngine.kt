@@ -1,10 +1,7 @@
 package com.github.malayP.decorations.block.machine.engine
 
-import com.github.malayP.decorations.block.machine.Detectable
-import com.github.malayP.decorations.capability.RotaryCapability.RotaryCapabilityContentImpl
 import com.github.malayP.decorations.modResourcesLocation
 import com.github.malayP.decorations.register.AllTileEntity.dcElectronicEngineType
-import com.github.zomb_676.fantasySoup.EnumShaftMaterial
 import com.github.zomb_676.fantasySoup.block.HorizonBlockWithTileEntity
 import com.mojang.blaze3d.matrix.MatrixStack
 import com.mojang.blaze3d.vertex.IVertexBuilder
@@ -17,7 +14,6 @@ import net.minecraft.client.renderer.model.ModelRenderer
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher
 import net.minecraft.state.properties.BlockStateProperties
-import net.minecraft.tileentity.ITickableTileEntity
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.Direction
 import net.minecraft.util.math.vector.Vector3f
@@ -30,61 +26,7 @@ class DCElectronicEngine : HorizonBlockWithTileEntity(Properties.create(Material
     override fun createTileEntity(state: BlockState, world: IBlockReader): TileEntity = DCElectronicEngineTileEntity()
 }
 
-class DCElectronicEngineTileEntity : EngineTileEntity(dcElectronicEngineType.get()), Detectable, ITickableTileEntity {
-    private val rotaryCapability = object : RotaryCapabilityContentImpl(EnumShaftMaterial.BEDROCK, this) {
-        override fun calculate() {
-        }
-    }
-
-    companion object {
-        const val torque: Int = 4
-        const val speed: Int = 256
-    }
-
-    override fun remove() {
-        rotaryCapability.invalid()
-    }
-
-    override fun updateContainingBlockInfo() {
-        super.updateContainingBlockInfo()
-        rotaryCapability.indexOutArray[blockState.get(BlockStateProperties.HORIZONTAL_FACING).index] = true
-    }
-
-    override fun canProduceEnergy(): Boolean = world!!.getRedstonePowerFromNeighbors(pos) != 0
-
-    override fun getOutputTorque(): Int = torque
-
-    override fun getOutputSpeed(): Int = speed
-
-    override fun tick() {
-        if (world!!.isBlockPowered(pos)) {
-            if (!isWorking) {
-                isWorking = true
-                val direction = blockState.get(BlockStateProperties.HORIZONTAL_FACING)
-                rotaryCapability.indexTorqueArray[direction.index] = torque
-                rotaryCapability.indexSpeedArray[direction.index] = speed
-                rotaryCapability.indexOutArray[direction.index] = true
-                rotaryCapability.energySource.add(this)
-                rotaryCapability.updateOutputData(direction)
-            }
-        } else if (isWorking) {
-            isWorking = false
-            val direction = blockState.get(BlockStateProperties.HORIZONTAL_FACING)
-            rotaryCapability.indexTorqueArray[direction.index] = 0
-            rotaryCapability.indexSpeedArray[direction.index] = 0
-            rotaryCapability.indexOutArray[direction.index] = false
-            rotaryCapability.energySource.remove(this)
-            rotaryCapability.updateOutputData(direction)
-        }
-    }
-
-    override fun getDetectorUseInfo(): String {
-        return if (isWorking) {
-            "status : working , torque output : ${torque}N/m , speed output : ${speed}rad/s"
-        } else {
-            "status : not working , reason : no redstone signal detected "
-        }
-    }
+class DCElectronicEngineTileEntity : TileEntity(dcElectronicEngineType.get()) {
 
     @OnlyIn(Dist.CLIENT)
     val model = DCElectronicEngineModel()
@@ -115,15 +57,6 @@ class DCElectronicEngineTileEntityRender(dispatcher: TileEntityRendererDispatche
         val f: Float =
             if (tileEntityIn.world != null) tileEntityIn.blockState.get(BlockStateProperties.HORIZONTAL_FACING).horizontalAngle else 90f
         matrixStackIn.rotate(Vector3f.YP.rotationDegrees(f))
-        if (tileEntityIn.world != null && tileEntityIn.isWorking) {
-            tileEntityIn.model
-        }
-        if (tileEntityIn.isWorking) {
-            tileEntityIn.model.rotate(
-                tileEntityIn.getOutputSpeed() * partialTicks,
-                Direction.Axis.X
-            )
-        }
         tileEntityIn.model.render(matrixStackIn, buffer, combinedLightIn, combinedOverlayIn, 1f, 1f, 1f, 1f)
         matrixStackIn.pop()
     }

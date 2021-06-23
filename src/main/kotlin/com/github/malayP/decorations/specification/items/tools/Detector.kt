@@ -11,7 +11,7 @@ import net.minecraftforge.api.distmarker.Dist
 import net.minecraftforge.api.distmarker.OnlyIn
 
 
-class Detector : Item(Properties().group(AllItemGroup.toolsGroup)) {
+class Detector : Item(Properties().group(AllItemGroup.decorations)) {
 
     @OnlyIn(Dist.CLIENT)
     override fun onItemUse(context: ItemUseContext): ActionResultType {
