@@ -7,6 +7,8 @@ import com.github.malayP.decorations.block.machine.consumer.FrictionHeaterTileEn
 import com.github.malayP.decorations.block.machine.engine.*
 import com.github.malayP.decorations.block.machine.machine.*
 import com.github.malayP.decorations.block.machine.relay.*
+import com.github.malayP.decorations.block.reactor.CoilTileEntity
+import com.github.malayP.decorations.block.reactor.CoilTileEntityRender
 import com.github.malayP.decorations.register.AllBlocks.GasolineEngineBlock
 import com.github.malayP.decorations.register.AllBlocks.acElectronicEngineBlock
 import com.github.malayP.decorations.register.AllBlocks.bedrockBreakerBlock
@@ -23,6 +25,7 @@ import com.github.malayP.decorations.register.AllBlocks.blastFurnaceBlock
 import com.github.malayP.decorations.register.AllBlocks.centrifugeBlock
 import com.github.malayP.decorations.register.AllBlocks.chainDriveBlock
 import com.github.malayP.decorations.register.AllBlocks.clutchBlock
+import com.github.malayP.decorations.register.AllBlocks.coilBlock
 import com.github.malayP.decorations.register.AllBlocks.creativeEngineBlock
 import com.github.malayP.decorations.register.AllBlocks.cvtUnitBlock
 import com.github.malayP.decorations.register.AllBlocks.dcElectronicEngineBlock
@@ -372,6 +375,13 @@ object AllTileEntity {
         SprinklerTileEntity::class.java,
         {{SprinklerTileEntityRender::class.java}},
         sprinklerBlock.block
+    )
+
+    val coilType = tileEntityType().tileEntityBlind(
+        "coil",
+        CoilTileEntity::class.java,
+        {{CoilTileEntityRender::class.java}},
+        coilBlock.block
     )
 
 }

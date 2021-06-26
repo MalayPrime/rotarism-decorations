@@ -9,6 +9,8 @@ import com.github.malayP.decorations.block.machine.engine.*
 import com.github.malayP.decorations.block.machine.machine.*
 import com.github.malayP.decorations.block.machine.relay.*
 import com.github.malayP.decorations.block.pipe.NormalPipe
+import com.github.malayP.decorations.block.reactor.Coil
+import com.github.malayP.decorations.block.reactor.CoilTileEntityRender
 import com.github.malayP.decorations.dataGen.*
 import com.github.malayP.decorations.register.AllFluid.alcoholLiquid
 import com.github.malayP.decorations.register.AllFluid.jetFuelLiquid
@@ -19,10 +21,15 @@ import com.github.zomb_676.fantasySoup.register.BlockItemPair
 import com.github.zomb_676.fantasySoup.register.BlockRegisterInstance
 import com.github.zomb_676.fantasySoup.register.blindBlockRenderType
 import com.github.zomb_676.fantasySoup.render.RenderWithTextureAndModelISTER
+import com.mojang.blaze3d.matrix.MatrixStack
 import net.minecraft.block.Block
 import net.minecraft.block.FlowingFluidBlock
+import net.minecraft.client.renderer.IRenderTypeBuffer
 import net.minecraft.client.renderer.RenderType
+import net.minecraft.client.renderer.model.ItemCameraTransforms
 import net.minecraft.item.BlockItem
+import net.minecraft.item.ItemStack
+import net.minecraft.util.math.vector.Vector3f
 import net.minecraftforge.client.model.generators.ModelFile
 import net.minecraftforge.fml.RegistryObject
 
@@ -753,6 +760,34 @@ object AllBlocks {
                 )}}
         ).item { isterModel() }
 
+    val coilBlock: BlockItemPair<BlockItem, Coil> = block().blockWithItem(
+        Coil::class.java,
+        itemGroup = decorations,
+        ister = {{object :
+            RenderWithTextureAndModelISTER(
+                CoilTileEntityRender.texture,
+                CoilTileEntityRender.model
+            ){
+            override fun func_239207_a_(
+                stack: ItemStack,
+                p_239207_2_: ItemCameraTransforms.TransformType,
+                matrixStackIn: MatrixStack,
+                bufferIn: IRenderTypeBuffer,
+                combinedLightIn: Int,
+                combinedOverlayIn: Int
+            ) {
+                matrixStackIn.push()
+                val renderType = RenderType.getEntityTranslucent(texture)
+                val buffer = bufferIn.getBuffer(renderType)
+                matrixStackIn.scale(1f, -1f, -1f)
+                matrixStackIn.translate(0.5, -1.5, -0.5)
+                matrixStackIn.rotate(Vector3f.YP.rotationDegrees(90f))
+                matrixStackIn.scale(0.5f,0.5f,0.5f)
+                model.render(matrixStackIn, buffer, combinedLightIn, combinedOverlayIn, 1f, 1f, 1f, 1f)
+                matrixStackIn.pop()
+            }
+        }}}
+    ).item { isterModel() }
 }
 
 
