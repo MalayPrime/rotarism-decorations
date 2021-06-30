@@ -23,7 +23,7 @@
   "block.decorations.bevel_gear":"Bevel Gear",
   "block.decorations.chain_drive":"Chain Drive",
   "block.decorations.clutch":"Clutch",
-  "block.decorations.cvt_unit":"CVT Unit",
+  "block.decorations.cvt_unit":"Cvt Unit",
   "block.decorations.dynamometer":"Dynamometer",
   "block.decorations.wooden_fly_wheel":"Wooden Fly Wheel",
   "block.decorations.stone_fly_wheel":"Stone Fly Wheel",
@@ -94,5 +94,6 @@
   "item.decorations.spring_steel":"Spring Steel",
   "item.decorations.tungsten_alloy":"Tungsten Alloy",
   "item.decorations.detector":"Detector",
-  "item.decorations.wrench":"Wrench"
+  "item.decorations.wrench":"Wrench",
+  "block.decorations.gun_turret":"Gun Turret"
 }

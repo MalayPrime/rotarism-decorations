@@ -94,5 +94,6 @@
   "item.decorations.spring_steel":"弹簧钢锭",
   "item.decorations.tungsten_alloy":"钨钢合金锭",
   "item.decorations.detector":"传感器",
-  "item.decorations.wrench":"扳手"
+  "item.decorations.wrench":"扳手",
+  "block.decorations.gun_turret":"机枪炮塔"
 }

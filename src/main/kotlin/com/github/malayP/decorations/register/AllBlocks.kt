@@ -1,6 +1,9 @@
 package com.github.malayP.decorations.register
 
 import com.github.malayP.decorations.block.crop.Canola
+import com.github.malayP.decorations.block.machine.GunTurret
+import com.github.malayP.decorations.block.machine.GunTurretTileEntity
+import com.github.malayP.decorations.block.machine.GunTurretTileEntityRender
 import com.github.malayP.decorations.block.machine.consumer.Centrifuge
 import com.github.malayP.decorations.block.machine.consumer.CentrifugeTileEntityRender
 import com.github.malayP.decorations.block.machine.consumer.FrictionHeater
@@ -787,6 +790,17 @@ object AllBlocks {
                 matrixStackIn.pop()
             }
         }}}
+    ).item { isterModel() }
+
+    val gunTurret = block().blockWithItem(
+        GunTurret::class.java,
+        itemGroup = decorations,
+        ister = {{
+            RenderWithTextureAndModelISTER(
+                GunTurretTileEntityRender.texture,
+                GunTurretTileEntityRender.model
+            )
+        }}
     ).item { isterModel() }
 }
 

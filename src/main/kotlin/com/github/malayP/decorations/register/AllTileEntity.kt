@@ -1,5 +1,7 @@
 package com.github.malayP.decorations.register
 
+import com.github.malayP.decorations.block.machine.GunTurretTileEntity
+import com.github.malayP.decorations.block.machine.GunTurretTileEntityRender
 import com.github.malayP.decorations.block.machine.consumer.CentrifugeTileEntity
 import com.github.malayP.decorations.block.machine.consumer.CentrifugeTileEntityRender
 import com.github.malayP.decorations.block.machine.consumer.FrictionHeaterTileEntity
@@ -41,6 +43,7 @@ import com.github.malayP.decorations.register.AllBlocks.frictionHeaterBlock
 import com.github.malayP.decorations.register.AllBlocks.gasTurbine
 import com.github.malayP.decorations.register.AllBlocks.goldFlywheelBlock
 import com.github.malayP.decorations.register.AllBlocks.groundSprinklerBlock
+import com.github.malayP.decorations.register.AllBlocks.gunTurret
 import com.github.malayP.decorations.register.AllBlocks.hydrokineticEngineBlock
 import com.github.malayP.decorations.register.AllBlocks.ironFlywheelBlock
 import com.github.malayP.decorations.register.AllBlocks.microturbineBlock
@@ -382,6 +385,13 @@ object AllTileEntity {
         CoilTileEntity::class.java,
         {{CoilTileEntityRender::class.java}},
         coilBlock.block
+    )
+
+    val gunTurretType = tileEntityType().tileEntityBlind(
+        "gun_turret",
+        GunTurretTileEntity::class.java,
+        {{GunTurretTileEntityRender::class.java}},
+        gunTurret.block
     )
 
 }
