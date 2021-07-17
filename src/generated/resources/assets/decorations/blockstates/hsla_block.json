@@ -1,6 +1,7 @@
 {
   "variants": {
     "": {
+      "model": "decorations:block/hsla_block"
     }
   }
 }

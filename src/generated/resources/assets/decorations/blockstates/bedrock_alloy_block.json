@@ -1,6 +1,7 @@
 {
   "variants": {
     "": {
+      "model": "decorations:block/bedrock_alloy_block"
     }
   }
 }

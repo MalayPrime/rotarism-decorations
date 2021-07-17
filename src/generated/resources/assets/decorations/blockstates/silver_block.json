@@ -1,6 +1,7 @@
 {
   "variants": {
     "": {
+      "model": "decorations:block/silver_block"
     }
   }
 }

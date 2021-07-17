@@ -1,6 +1,7 @@
 {
   "variants": {
     "": {
+      "model": "decorations:block/spring_steel_block"
     }
   }
 }

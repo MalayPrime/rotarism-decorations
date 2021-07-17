@@ -1,6 +1,7 @@
 {
   "variants": {
     "": {
+      "model": "decorations:block/sintered_tungsten_block"
     }
   }
 }
