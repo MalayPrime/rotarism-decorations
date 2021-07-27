@@ -28,9 +28,6 @@ class DCElectronicEngine : HorizonBlockWithTileEntity(Properties.create(Material
 
 class DCElectronicEngineTileEntity : TileEntity(dcElectronicEngineType.get()) {
 
-    @OnlyIn(Dist.CLIENT)
-    val model = DCElectronicEngineModel()
-
 }
 
 class DCElectronicEngineTileEntityRender(dispatcher: TileEntityRendererDispatcher) :
@@ -39,6 +36,7 @@ class DCElectronicEngineTileEntityRender(dispatcher: TileEntityRendererDispatche
     ) {
     companion object {
         val texture = modResourcesLocation("textures/tile_entity/engines/dc_electronic_engine/dc_electronic_engine.png")
+        val model = DCElectronicEngineModel()
     }
 
     override fun render(
@@ -57,7 +55,7 @@ class DCElectronicEngineTileEntityRender(dispatcher: TileEntityRendererDispatche
         val f: Float =
             if (tileEntityIn.world != null) tileEntityIn.blockState.get(BlockStateProperties.HORIZONTAL_FACING).horizontalAngle else 90f
         matrixStackIn.rotate(Vector3f.YP.rotationDegrees(f))
-        tileEntityIn.model.render(matrixStackIn, buffer, combinedLightIn, combinedOverlayIn, 1f, 1f, 1f, 1f)
+        model.render(matrixStackIn, buffer, combinedLightIn, combinedOverlayIn, 1f, 1f, 1f, 1f)
         matrixStackIn.pop()
     }
 
