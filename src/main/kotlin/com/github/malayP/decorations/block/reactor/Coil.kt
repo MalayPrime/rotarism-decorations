@@ -60,7 +60,7 @@ class Coil : BlockWithTileEntity(Properties.create(Material.IRON)) {
     }
     
     override fun getRenderShape(state: BlockState, worldIn: IBlockReader, pos: BlockPos): VoxelShape =
-        makeCuboidShape(-16.0,0.0,-16.0,32.0,32.0,48.0)
+        makeCuboidShape(-16.0,0.0,-16.0,32.0,48.0,32.0)
 }
 
 class CoilTileEntity : TileEntity(coilType.get()) {
