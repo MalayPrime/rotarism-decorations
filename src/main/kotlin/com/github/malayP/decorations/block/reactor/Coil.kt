@@ -1,5 +1,4 @@
 package com.github.malayP.decorations.block.reactor
-
 import com.github.malayP.decorations.modResourcesLocation
 import com.github.malayP.decorations.register.AllItems
 import com.github.malayP.decorations.register.AllTileEntity.coilType
@@ -10,7 +9,6 @@ import net.minecraft.block.BlockState
 import net.minecraft.block.material.Material
 import net.minecraft.client.renderer.IRenderTypeBuffer
 import net.minecraft.client.renderer.RenderType
-import net.minecraft.client.renderer.entity.model.EntityModel
 import net.minecraft.client.renderer.model.Model
 import net.minecraft.client.renderer.model.ModelRenderer
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer
@@ -23,11 +21,10 @@ import net.minecraft.network.play.server.SUpdateTileEntityPacket
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.ActionResultType
 import net.minecraft.util.Hand
-import net.minecraft.util.Util
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.BlockRayTraceResult
+import net.minecraft.util.math.shapes.VoxelShape
 import net.minecraft.util.math.vector.Vector3f
-import net.minecraft.util.text.StringTextComponent
 import net.minecraft.world.IBlockReader
 import net.minecraft.world.World
 import net.minecraftforge.common.util.Constants.BlockFlags.NO_NEIGHBOR_DROPS
@@ -48,13 +45,18 @@ class Coil : BlockWithTileEntity(Properties.create(Material.IRON)) {
     ): ActionResultType {
         if (!worldIn.isRemote) {
             if (player.getHeldItem(handIn).item == AllItems.wrench.get()) {
-                (worldIn.getTileEntity(pos) as? CoilTileEntity)?.rotate(if (player.isSneaking) -30 else 30)
-
+                (worldIn.getTileEntity(pos) as? CoilTileEntity)?.apply {
+                    rotate(if (player.isSneaking) -5 else 5)
+                    player.sendMessage(StringTextComponent("degree set to ${this.degree}"),Util.DUMMY_UUID)
+                }
                 return ActionResultType.SUCCESS
             }
         }
         return ActionResultType.CONSUME
     }
+    
+    override fun getRenderShape(state: BlockState, worldIn: IBlockReader, pos: BlockPos): VoxelShape =
+        makeCuboidShape(-16.0,0.0,-16.0,32.0,32.0,48.0)
 }
 
 class CoilTileEntity : TileEntity(coilType.get()) {
