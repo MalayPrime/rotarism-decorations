@@ -1,4 +1,5 @@
 package com.github.malayP.decorations.block.reactor
+
 import com.github.malayP.decorations.modResourcesLocation
 import com.github.malayP.decorations.register.AllItems
 import com.github.malayP.decorations.register.AllTileEntity.coilType
@@ -21,10 +22,13 @@ import net.minecraft.network.play.server.SUpdateTileEntityPacket
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.ActionResultType
 import net.minecraft.util.Hand
+import net.minecraft.util.Util
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.BlockRayTraceResult
 import net.minecraft.util.math.shapes.VoxelShape
 import net.minecraft.util.math.vector.Vector3f
+import net.minecraft.util.text.ITextComponent
+import net.minecraft.util.text.StringTextComponent
 import net.minecraft.world.IBlockReader
 import net.minecraft.world.World
 import net.minecraftforge.common.util.Constants.BlockFlags.NO_NEIGHBOR_DROPS
