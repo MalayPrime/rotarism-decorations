@@ -23,6 +23,7 @@ import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.ActionResultType
 import net.minecraft.util.Hand
 import net.minecraft.util.Util
+import net.minecraft.util.math.AxisAlignedBB
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.BlockRayTraceResult
 import net.minecraft.util.math.shapes.VoxelShape
@@ -95,7 +96,8 @@ class CoilTileEntity : TileEntity(coilType.get()) {
         return super.write(compound)
     }
 
-
+    override fun getRenderBoundingBox(): AxisAlignedBB =
+        AxisAlignedBB(pos.add(-2,0,-2),pos.add(2,3,2))
 }
 
 class CoilTileEntityRender(rendererDispatcherIn: TileEntityRendererDispatcher) : TileEntityRenderer<CoilTileEntity>(
